@@ -1,0 +1,11 @@
+[Unit]
+Description=mpdsonglisten
+
+[Service]
+Environment="PATH=/home/chema/.toys:/home/chema/.bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+Environment="DISPLAY=:0"
+Environment="HOME=/home/chema/"
+ExecStart=/usr/bin/mpdsonglisten localhost 6600 art killart
+
+[Install]
+WantedBy=default.target

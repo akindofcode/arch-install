@@ -1,0 +1,31 @@
+#!/bin/bash
+set -e
+
+echo "### installing themes ###"
+
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+trizen -S --noconfirm --noedit arc-gtk-theme breeze-default-cursor-theme
+
+mkdir -p ~/.themes
+cp -r dots/.themes/* ~/.themes/
+
+echo "### themes installed ###"
+
+echo "### installing fonts ###"
+
+sudo pacman -S --noconfirm --needed noto-fonts powerline-fonts 
+
+trizen -S --noconfirm --noedit ttf-font-awesome-4 ttf-mononoki ttf-fira-code
+
+#install windows fonts
+sudo cp -r fonts/WindowsFonts /usr/share/fonts/
+sudo chmod 755 /usr/share/fonts/WindowsFonts/*
+
+#to make full use of the MS fonts it is necessary to create a rule mapping those generic names to MS specific fonts
+sudo cp init/99-user.conf /etc/fonts/conf.d/
+
+#regenerate the fontconfig cache:
+fc-cache -fv
+
+echo "### fonts installed ###"

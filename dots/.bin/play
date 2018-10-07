@@ -1,0 +1,4 @@
+#!/bin/bash
+# script to execute beet play from rofi
+
+beet play $@

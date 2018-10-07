@@ -1,0 +1,42 @@
+#!/bin/bash
+
+mkdir -p dot-backup/.config
+cp -r ~/.config/beets dot-backup/.config
+cp -r ~/.config/cava dot-backup/.config
+cp -r ~/.config/compton dot-backup/.config
+cp -r ~/.config/dconf dot-backup/.config
+cp -r ~/.config/dunst dot-backup/.config
+cp -r ~/.config/gtk-2.0 dot-backup/.config
+cp -r ~/.config/gtk-3.0 dot-backup/.config
+cp -r ~/.config/htop dot-backup/.config
+cp -r ~/.config/libfm dot-backup/.config
+cp -r ~/.config/mpd dot-backup/.config
+cp -r ~/.config/mps-youtube dot-backup/.config
+cp -r ~/.config/mpv dot-backup/.config
+cp -r ~/.config/neofetch dot-backup/.config
+cp -r ~/.config/nitrogen dot-backup/.config
+cp -r ~/.config/oblogout dot-backup/.config
+cp -r ~/.config/obmenu-generator dot-backup/.config
+cp -r ~/.config/openbox dot-backup/.config
+cp -r ~/.config/pcmanfm dot-backup/.config
+cp -r ~/.config/polybar dot-backup/.config
+cp -r ~/.config/pulse dot-backup/.config
+cp -r ~/.config/ranger dot-backup/.config
+cp -r ~/.config/sublime-text-3 dot-backup/.config
+cp -r ~/.config/systemd dot-backup/.config
+cp -r ~/.config/termite dot-backup/.config
+cp -r ~/.config/Thunar dot-backup/.config
+cp -r ~/.config/tint2 dot-backup/.config
+cp -r ~/.config/trizen dot-backup/.config
+cp -r ~/.config/xfce4 dot-backup/.config
+cp -r ~/.toys dot-backup/
+cp -r ~/.bin dot-backup/
+cp -r ~/.ncmpcpp dot-backup/
+cp -r ~/.vim dot-backup/
+cp ~/.Xresources dot-backup/
+cp ~/.zshrc dot-backup/
+cp ~/.vimrc dot-backup/
+cp ~/.rtorrent.rc dot-backup/
+cp ~/.bashrc dot-backup/
+
+echo "### dots backup done ###"

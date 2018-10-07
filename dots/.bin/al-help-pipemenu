@@ -1,0 +1,109 @@
+#!/bin/bash
+#    al-help-pipemenu - an Openbox pipemenu for displaying help files
+#    Copyright (C) 2015 damo    <damo@bunsenlabs.org>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+HELP='    al-help-pipemenu an Openbox Pipe Menu for displaying help files
+    It should normally be called from an openbox menu.
+
+Options (usually passed from the menu):
+    -h --help   show this message
+
+    If al-help-pipemenu is called with no options (the usual method),
+    it will output an xml openbox pipemenu displaying various help files,
+    both online and on the system.
+'
+# look for a help option somewhere
+for i in "$@"
+do
+    case "$i" in
+    -h|--help)
+        echo "$HELP"
+        exit 0
+        ;;
+    esac
+done
+
+BL_COMMON_LIBDIR='/usr/lib/archlabs/common'
+
+if ! . "$BL_COMMON_LIBDIR/al-include.cfg" 2> /dev/null; then
+    echo $"Error: Failed to source al-include.cfg in $BL_COMMON_LIBDIR" >&2
+    exit 1
+fi
+
+menuStart
+
+menuSeparator 'Arch Linux'
+menuSeparator
+menuItem 'Arch Linux Homepage' 'xdg-open "https://www.archlinux.org/"'
+menuItem 'Arch Linux Wiki' 'xdg-open "https://wiki.archlinux.org/"'
+menuItem 'Arch Linux Reddit' 'xdg-open "https://www.reddit.com/r/archlinux/"'
+menuItem 'Arch Linux Forums' 'xdg-open "https://bbs.archlinux.org/"'
+menuSubmenu 'ArchLinuxWWW' 'Arch Linux Info'
+    menuItem 'Arch Linux Directory Structure' 'xdg-open "https://netarky.com/programming/arch_linux/Arch_Linux_directory_structure.html"'
+menuSubmenuEnd
+
+menuSeparator 'Personalization'
+menuSeparator
+menuSubmenu 'OpenboxWWW' 'Openbox'
+    menuSubmenu 'ObWWW' 'Openbox Website'
+        menuItem 'Openbox Homepage' 'xdg-open "http://openbox.org/"'
+        menuItem 'Openbox Getting Started' 'xdg-open "http://openbox.org/wiki/Help:Getting_started"'
+        menuItem 'Openbox Documentation' 'xdg-open "http://openbox.org/wiki/Help:Contents"'
+        menuItem 'Openbox FAQs' 'xdg-open "http://openbox.org/wiki/Help:FAQ"'
+    menuSubmenuEnd
+    menuItem 'Arch Wiki Openbox Guide' 'xdg-open "http://wiki.archlinux.org/index.php/Openbox"'
+    menuItem 'Debian Wiki Openbox Guide' 'xdg-open "https://wiki.debian.org/Openbox"'
+    menuItem 'Urukramas Openbox Guide' 'xdg-open "https://urukrama.wordpress.com/openbox-faq/"'
+    menuItem 'Openbox Reddit' 'xdg-open "https://www.reddit.com/r/openbox/"'
+menuSubmenuEnd
+menuSubmenu 'Tint2WWW' 'Tint2'
+    menuItem 'Tint2 Wiki: FAQ' 'xdg-open "https://gitlab.com/o9000/tint2/wikis/FAQ"'
+    menuItem 'Tint2 Wiki: Configuration' 'xdg-open "https://gitlab.com/o9000/tint2/blob/master/doc/tint2.md"'
+    menuItem 'Tint2 Forum Thread' 'xdg-open "https://forums.bunsenlabs.org/viewtopic.php?id=254"'
+    menuItem 'Tint2 Man Pages' 'termite -e "man tint2" -t "tint2 man page"'
+menuSubmenuEnd
+menuSubmenu 'ConkyWWW' 'Conky'
+    menuItem 'Conky Wiki' 'xdg-open "https://github.com/brndnmtthws/conky/wiki"'
+    menuItem 'Conky Archive' 'xdg-open "http://crunchbang.org/forums/viewtopic.php?pid=371424"'
+    menuItem 'Conky Reddit' 'xdg-open "https://www.reddit.com/r/conky/"'
+    menuItem 'Conky Man Pages' 'termite -e "man conky"'
+menuSubmenuEnd
+menuSubmenu 'ThemesWWW' 'Theme Resources'
+    menuItem 'UnixPorn' 'xdg-open "https://www.reddit.com/r/unixporn/"'
+    menuItem 'Bunsenlabs on DeviantArt' 'xdg-open "http://bunsenlabs.deviantart.com/"'
+    menuItem 'Eye Candy Linux DeviantArt' 'xdg-open "http://eye-candy-linux.deviantart.com/"'
+    menuItem 'Box-Look.org' 'xdg-open "http://www.box-look.org"'
+    menuItem 'Gnome-Look.org' 'xdg-open "http://gnome-look.org/"'
+    menuItem 'Eye Candy Linux Google+' 'xdg-open "https://plus.google.com/u/0/communities/104794997718869399105"'
+    menuItem 'nixers.net' 'xdg-open "http://nixers.net/"'
+    menuItem 'dotshare.it' 'xdg-open "http://dotshare.it/"'
+menuSubmenuEnd
+
+menuSeparator 'Man Pages'
+menuSeparator
+menuItem 'Termite' 'termite -e "man termite" -t "termite man page"'
+menuItem 'Compositor' 'termite -e "man compton" -t "compositor man page"'
+menuItem 'Dmenu' 'termite -e "man dmenu" -t "dmenu man page"'
+menuItem 'Xrandr' 'termite -e "man xrandr" -t "xrandr man page"'
+menuItem 'Yad' 'termite -e "man yad" -t "yad man page"'
+
+menuSeparator 'Wikis'
+menuSeparator
+menuItem 'Arch Wiki' 'xdg-open "https://wiki.archlinux.org/index.php/Table_of_contents"'
+menuItem 'Termite' 'xdg-open "https://wiki.archlinux.org/index.php/termite"'
+
+menuEnd
+

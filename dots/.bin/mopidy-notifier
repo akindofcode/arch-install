@@ -1,0 +1,9 @@
+#!/bin/bash
+
+{
+    album="$(mpc --port 6666 --format %album% current)"
+    artist="$(mpc --port 6666 --format %artist% current)"
+    song="$(mpc --port 6666 --format %title% current)"
+    file="$(mpc --port 6666 --format %file% current)"
+    notify-send "Mopidy: $song / $artist" &
+} &

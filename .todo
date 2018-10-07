@@ -1,0 +1,48 @@
+Configuration:
+  ✔ Packer -> Trizen in scripts and test @done (18-05-30 14:16)
+  ✔ modify update-system script to use trizen @done (18-05-30 16:57)
+  ✔ modify polybar arch-updates script to check aur (trizen -Su --aur --quiet | wc -l) @done (18-05-30 17:29)
+  ✔ remove packer @done (18-05-30 16:58)
+  ✔ add trizen -S --noedit --noconfirm spotify to 006-music @done (18-08-10 10:52)
+  ✔ add openssh, ssh_config, .shh ? to README.md @done (18-10-04 18:31)
+  ✔ Configure sublime & add configs to github @done (18-05-30 16:19)
+    ✔ add package control to git @done (18-05-30 16:19)
+    ✔ backup User settings, keybinds @done (18-05-30 16:19)
+    ✔ install plaintasks, material theme +  a file icon @done (18-05-30 16:19)
+  ✔ install ttf-fira-code & add to 005-themes-fonts @done (18-05-30 17:32)  
+  ✔ trizen -S --noedit --noconfirm vivaldi-widevine  Test: https://bitmovin.com/mpeg-dash-hls-drm-test-player/ @done (18-06-06 17:05)
+  ☐ test a /etc/hosts file from https://github.com/StevenBlack/hosts or http://someonewhocares.org/hosts/
+  ✔ mopidy on arch linux https://gist.github.com/0x414A/11118592 @done (18-10-04 18:31)
+  ☐ remove unneeded packages (torrench, peerflix, canta...)
+  ☐ pi-hole
+  ☐ configure bluetooth  #(sleep 3; blueberry-tray) & ver arcolinux openbox y polybar
+  ☐ configure thunar
+  ☐ autostart   #thunar starting in daemon mode -> thunar --daemon &
+  ✔ vivaldi sync @done (18-10-04 18:33)
+  ✔ one wallpaper per desktop @done (18-10-04 18:34)
+  ✔ try color schemes (termite, urxvt, dunst, etc) pywal @done (18-10-04 18:33)
+  ☐ pywal / wpgtk pipeline for wpgtk: https://github.com/domsch1988/consave/blob/master/full/openbox/wpgtkmenu.sh
+  ☐ config zsh
+  ☐ prepare installation to SSD (create new 24 - 32 gb partition) Disk management - Shrink volume - (32768)
+  ☐ optimize ssd on linux 
+  ☐ optimize boot time
+
+Vivaldi cache:
+  ✔ move cache & test -> add to git @done (18-06-06 17:01)
+  ✔ cd /.cache ; rm -rf vivaldi ; ln -s /tmp vivaldi @done (18-06-01 21:31)
+  ✔ is persitence needed? no @done (18-06-06 17:01)
+  ✔ --disk-cache-dir=z:\vivaldi\ --disk-cache-size=104857600   (/tmp is a tmpfs ) -> findmnt --target /tmp @done (18-06-06 17:01)
+  ✔ --process-per-site @done (18-06-06 17:01)
+
+Backup & Restore:
+  ✔ create a script to backup dot files (102-backup-dots) @done (18-05-30 17:00)
+  ✔ create a script to restore dot files (103-restore-dots) cd dot-backups ; cp -r * ~/ @done (18-06-06 17:03)
+
+Icons & fonts:
+
+  ☐ sardi-mono-numix-colora-variations-icons-git
+  ☐ paper-icon-theme-git
+  ✔ Fira Code @done (18-05-30 17:32)
+  ☐ Roboto
+  ☐ Hack
+  ☐ monokai

@@ -1,0 +1,65 @@
+#!/bin/bash
+set -e
+
+echo "### adding Music partition to fstab ###"
+
+echo -e "\n/dev/sdd1 /run/media/chema/Music ntfs-3g defaults 0 0" | sudo tee -a /etc/fstab
+
+echo "### Music partition added to fstab ###"
+
+echo "### installing music apps ###"
+
+sudo pacman -S --needed --noconfirm mpd ncmpcpp mpc mpv youtube-dl 
+
+trizen -S --noedit --noconfirm beets beets-copyartifacts-git python-discogs-client spotify cava pulsemixer
+
+sudo pacman -S --needed --noconfirm python-pip python-requests python-pylast kid3
+
+echo "### music apps installed ###"
+
+echo "### configuring mpd ###"
+
+mkdir -p ~/.config/mpd
+cp dots/.config/mpd/mpd.conf ~/.config/mpd
+
+mkdir -p ~/.config/systemd/user
+cp dots/.config/systemd/user/* ~/.config/systemd/user
+
+echo "### mpd configured ###"
+
+echo "setting up systemd --user mpd service."
+systemctl --user enable mpd
+systemctl --user start mpd
+echo "### mpd setup complete ###"
+
+echo " "
+echo "If you want mpd to start even before you login"
+echo "enable linger for your user by running"
+echo "\"loginctl enable-linger $username\""
+echo " "
+echo "Otherwise simply run "mpd" as user now."
+
+echo ""
+echo "### installing mopidy ###"
+echo ""
+
+sudo pacman -S mopidy
+trizen -S --noedit --noconfig mopidy-spotify
+trizen -S --noedit --noconfig mopidy-iris
+trizen -S --noedit --noconfig mopidy-local-sqlite
+sudo pip2 uninstall tornado
+sudo pip2 install tornado==4.5.3 
+
+
+mkdir -p ~/.config/mopidy
+cp dots/.config/mopidy/mopidy.conf ~/.config/mopidy
+
+echo "### mopidy configured ###"
+
+echo "setting up systemd --user mopidy service."
+systemctl --user enable mopidy
+systemctl --user start mopidy
+echo "### mopidy setup complete ###"
+
+echo "run mopidy local scan in order to scan music library"
+

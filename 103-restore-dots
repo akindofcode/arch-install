@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd dot-backups
+cp -r * ~/
+
+echo "### dots backup restored ###"

@@ -1,0 +1,82 @@
+#!/bin/bash
+set -e
+
+echo "### copying dot files ###"
+
+cd dots
+# cp .xinitrc ~/
+cp .Xresources ~/
+cp .zshrc ~/
+cp .vimrc ~/
+cp -r wallpapers ~/
+cp -r .bin ~/
+cp -r .toys ~/
+cp -r .vim ~/
+cp -r .ncmpcpp ~/
+cp -r .config  ~/
+
+sudo mkdir -p /usr/lib/archlabs/common
+sudo mv ~/.bin/al-include.cfg /usr/lib/archlabs/common/
+sudo chown root:root /usr/lib/archlabs/common/al-include.cfg
+
+echo "### dot files copied ###"
+
+echo "### installing mpdsonglisten service ###"
+
+sudo mv ~/.bin/mpdsonglisten /usr/bin/
+
+systemctl --user enable mpdsonglisten
+systemctl --user start mpdsonglisten
+
+echo "### mpdsonglisten installed ###"
+
+echo "### installing mopidysonglisten service ###"
+
+systemctl --user enable mopidysonglisten
+systemctl --user start mopidysonglisten
+
+echo "### mopidysonglisten installed ###"
+
+echo "### installing qBittorrent"
+
+sudo pacman -S qbittorrent-nox
+
+systemctl --user enable qbittorrent.service
+systemctl --user start qbittorrent.service
+
+mkdir -p ~/.local/share/applications/
+cp .local/share/applications/* ~/.local/share/applications/
+
+xdg-mime default qbittorrent.desktop x-scheme-handler/magnet
+xdg-mime default qbittorrent2.desktop application/x-bittorrent
+
+echo "### qBittorrent installed ###"
+
+# echo "### installing rtorrent ###"
+
+# sudo pacman -S --noconfirm --needed screen rtorrent
+
+# mkdir -p ~/rtorrent
+# cp .rtorrent.rc ~/
+
+# systemctl --user enable rtorrent
+# systemctl --user start rtorrent
+
+# mkdir -p ~/.local/share/applications/
+# cp .local/share/applications/rtorrent-magnet.desktop ~/.local/share/applications/
+# xdg-mime default rtorrent-magnet.desktop x-scheme-handler/magnet
+
+# echo "### rtorrent installed ###"
+
+echo "### configuring vivaldi ###"
+
+# copy vivaldi conf - check for updates at https://github.com/Tiamarth/Arc-for-Vivaldi
+sudo cp vivaldi/*.css /opt/vivaldi/resources/vivaldi/style
+sudo cp -R vivaldi/arc /opt/vivaldi/resources/vivaldi/style
+sudo cp vivaldi/browser.html /opt/vivaldi/resources/vivaldi/
+
+echo "!!! You need to modify the Vivaldi Theme by hand !!!"
+echo "Check values at https://github.com/Tiamarth/Arc-for-Vivaldi"
+echo "Add arc.css to browser.html"
+
+echo "Restart computer to apply changes"

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pkill -f 'feh /tmp/cover.jpg'
+pkill -f 'termite -e mpdlyrics'
+pkill -f 'termite -e cava'

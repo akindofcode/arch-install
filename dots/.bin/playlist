@@ -1,0 +1,20 @@
+#!/bin/bash
+# script to load beet generated playlist
+# the playlist is processed to replace windows path and copied to ~/.config/mpd/playlists/current.m3u
+# mpc clears the playlist, loads the new one and start playing the first track
+
+sed -i 's/E:\\/\/run\/media\/chema\/Music\//g' $1
+
+sed -i 's/\\/\//g' $1
+
+cp $1 ~/.config/mpd/playlists/current.m3u
+
+rm $1
+
+mpc stop --quiet
+
+mpc clear --quiet
+
+mpc load --quiet current
+
+mpc play 1 

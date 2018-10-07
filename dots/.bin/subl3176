@@ -1,0 +1,3 @@
+#!/bin/bash
+
+printf '\x00\01' | sudo dd seek=$((0xD538)) conv=notrunc bs=1 of=/opt/sublime_text/sublime_text

@@ -1,0 +1,44 @@
+#directory: ~/Music
+#library: ~/.beets/musiclibrary.blb
+
+directory: /run/media/chema/Music/
+library: /run/media/chema/Music/musiclibrary.blb
+
+ui:
+  color: yes
+
+import:
+  move: no
+  copy: yes
+
+format_item: $artist - $album [$year] - $title
+format_album: $albumartist - $album [$year]
+sort_item: artist+ year+ album+ disc+ track+
+sort_album: albumartist+ year+ album+
+original_date: yes 
+
+plugins: discogs copyartifacts fetchart lastgenre lyrics mpdupdate play rewrite
+
+paths:
+  default: %upper{$format}/%upper{$albumartist}/$albumartist [$year] $album {${label}%ifdef{catalognum, - }$catalognum$}/$track - $title
+#  ext:log: $albumpath/$albumartist - $album
+#  ext:cue: $albumpath/$albumartist - $album
+#  ext:m3u: $albumpath/$albumartist - $album
+
+copyartifacts:
+  extensions: .cue .log .m3u .md5 .txt
+
+mpd:
+  host: localhost
+  port: 6600
+
+lyrics:
+  auto: no
+  fallback: ''
+  sources: google lyricwiki musixmatch
+
+rewrite:
+  albumartist .*andrew bird.* : Andrew Bird
+
+play:
+  command: playlist

@@ -1,0 +1,95 @@
+[options]
+
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+mouse_autohide = false
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+#font = Monospace Bold 7
+#font = Hack Bold 6
+#font = Fira Mono 7
+font = Mononoki Bold 8
+search_wrap = true
+#icon_name = terminal
+#geometry = 640x400
+#fullscreen = true
+scrollback_lines = 15000
+clickable_url = true
+
+# "system", "on" or "off"
+cursor_blink = off
+
+# "block", "underline" or "ibeam"
+cursor_shape = underline
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+browser = xdg-open
+
+# set size hints for the window
+#size_hints = false
+
+# Hide links that are no longer valid in url select overlay mode
+filter_unmatched_urls = true
+
+# emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+[colors]
+
+###############################
+# wal 3.jpg generated         #
+###############################
+
+# special
+foreground      = #bdc1bc
+foreground_bold = #bdc1bc
+cursor          = #bdc1bc
+background      = #0a0c19
+background = rgba(10, 12, 25, 0.85)
+
+
+# black
+color0  = #0a0c19
+color8  = #848783
+
+# red
+color1  = #936656
+color9  = #936656
+
+# green
+color2  = #74847C
+color10 = #74847C
+
+# yellow
+color3  = #90897A
+color11 = #90897A
+
+# blue
+color4  = #3D6081
+color12 = #3D6081
+
+# magenta
+color5  = #637784
+color13 = #637784
+
+# cyan
+color6  = #768987
+color14 = #768987
+
+# white
+color7  = #bdc1bc
+color15 = #bdc1bc
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0
+#roundness = 2.0

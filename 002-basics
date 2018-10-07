@@ -1,0 +1,47 @@
+#!/bin/bash
+set -e
+
+echo "### installing basic apps ###"
+
+sudo pacman -S --noconfirm --needed vivaldi vivaldi-ffmpeg-codecs termite pcmanfm-gtk3 htop scrot imagemagick thunar ranger w3m sublime-text/sublime-text
+
+trizen -S --noedit --noconfirm vivaldi-widevine
+
+echo "### basic apps installed ###"
+
+echo "### installing openbox related apps ###"
+
+sudo pacman -S --noconfirm --needed obconf lxappearance-gtk3 lxappearance-obconf-gtk3 neofetch oblogout zenity dunst menu feh nitrogen rofi xfce4-appfinder gmrun numlockx compton python-wal
+
+trizen -S --noconfirm --noedit obmenu3 obmenu-generator obkey
+
+echo "### openbox related apps installed ###"
+
+echo "### installing zippers and unzippers ###"
+
+sudo pacman -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj cabextract file-roller
+
+echo "### zippers and unzippers installed ###"
+
+echo "### installing polybar ###"
+
+# tools needed for polybar
+sudo pacman -S --noconfirm --needed wireless_tools jq libmpdclient
+trizen -S --noconfirm --noedit ttf-weather-icons
+
+trizen -S --noconfirm --noedit polybar-git
+
+echo "### polybar installed ###"
+
+echo "### installing zsh ###"
+
+sudo pacman -S --noconfirm --needed zsh zsh-completions zsh-syntax-highlighting
+
+echo "### zsh installed ###"
+
+echo "### installing oh-my-zsh ###"
+
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+echo "### oh-my-zsh installed ###"
+echo "If you now log out and log in again, you will be greeted by the other shell (chsh -s /bin/zsh)"

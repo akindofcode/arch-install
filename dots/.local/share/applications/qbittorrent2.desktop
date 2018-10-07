@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=qBittorrent magnet
+Exec=qbittorrent-nox --webui-port=8113 %f
+MimeType=application/x-bittorrent;
+

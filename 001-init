@@ -1,0 +1,175 @@
+#!/bin/bash
+set -e
+
+echo "### configuring git ####"
+
+git config --global user.name "akindofcode"
+git config --global user.email "akindofcode@gmail.com"
+sudo git config --system core.editor "vim"
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=18000'
+git config --global push.default simple
+
+echo "### git has been configured ####"
+
+echo "### installing trizen ####"
+
+cd /tmp
+git clone https://aur.archlinux.org/trizen.git
+cd trizen
+makepkg -si
+
+rm -rf /tmp/trizen
+
+if pacman -Qi trizen &> /dev/null; then
+
+echo "### trizen has been installed ###"
+
+else
+
+echo "!!! trizen has NOT been installed !!!"
+
+fi
+
+echo "### blacklisting nouveau module ###"
+
+sudo cp init/blacklist.conf /etc/modprobe.d/
+sudo chown root:root /etc/modprobe.d/blacklist.conf
+
+echo "### nouveau module has been blacklisted ###"
+
+echo "### installing nvidia-settings ###"
+
+sudo pacman -S --needed --noconfirm nvidia-settings
+
+echo "### nvidia-settings has been installed ###"
+
+echo "### fixing big fonts ###"
+
+sudo nvidia-xconfig --no-use-edid-dpi
+
+echo "### big fonts fixed ###"
+
+echo "### fixing mount problems ###"
+
+sudo cp init/00-mount-internal.rules /etc/polkit-1/rules.d/
+sudo chown root:root /etc/polkit-1/rules.d/00-mount-internal.rules
+
+echo "### mount problems fixed ###"
+
+echo "### fixing time sync ###"
+
+sudo pacman -S --noconfirm --needed ntp
+sudo ntpd -qg
+hwclock --systohc
+
+echo "### time sync fixed ###"
+
+echo "### installing intel-ucode ###"
+
+sudo pacman -S --noconfirm --needed intel-ucode
+
+echo "### intel-ucode has been installed ###"
+
+echo "### installing grub-silent ###"
+
+trizen -S --noedit --noconfirm grub-silent
+
+echo "### grub-silent has been installed ###"
+
+echo "### re-installing grub ###"
+
+sudo grub-install --target=i386-pc /dev/sda
+
+echo "### grub has been re-installed ###"
+
+sudo cp /etc/default/grub /etc/default/grub.bak
+sudo cp init/grub /etc/default/grub
+sudo cp init/31_hold_shift /etc/grub.d
+
+echo "### regenerating grub configuration ###"
+
+sudo cp /etc/default/grub /etc/default/grub.bak
+sudo cp init/grub /etc/default/grub
+sudo cp init/31_hold_shift /etc/grub.d
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+echo "### grub configuration regenerated ###"
+
+# copy /etc/hosts file with adblock
+# sudo cp init/hosts /etc/
+
+echo "### installing jshon expac wget reflector pacman-contrib ###"
+
+sudo pacman -S --noconfirm --needed jshon expac wget reflector pacman-contrib
+
+echo "### jshon expac wget reflector pacman-contrib installed ###"
+
+echo "### ranking mirrors ###"
+
+sudo reflector -l 100 -f 50 --sort rate --threads 5 --verbose --save /tmp/mirrorlist.new && rankmirrors -n 0 /tmp/mirrorlist.new > /tmp/mirrorlist && sudo cp /tmp/mirrorlist /etc/pacman.d
+
+cat /etc/pacman.d/mirrorlist
+
+echo "### mirrors ranked ###"
+
+echo "### adding repos to pacman config ###"
+
+sudo cp /etc/pacman.conf /etc/pacman.conf.old
+
+# add herecura repo (for vivaldi)
+sudo sed -i /etc/pacman.conf -e '$a\\n[herecura]\nServer = http://repo.herecura.be/$repo/$arch'
+
+# add sublime text repo
+curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
+
+# Stable (sublime-text-dev - name of package: sublime-text)
+echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
+# Dev (Nightly build - needs license)
+# echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64" | sudo tee -a /etc/pacman.conf
+
+echo "### repos added to pacman config ###"
+
+echo "### updating system ###"
+
+sudo pacman -Syyu --noconfirm
+
+echo "### system updated ###"
+
+numberofcores=$(grep -c ^processor /proc/cpuinfo)
+
+case $numberofcores in
+
+    8)
+        echo "You have " $numberofcores" cores."
+        echo "Changing the makeflags for "$numberofcores" cores."
+        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j9"/g' /etc/makepkg.conf
+        echo "Changing the compression settings for "$numberofcores" cores."
+        sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 8 -z -)/g' /etc/makepkg.conf
+        ;;
+    4)
+        echo "You have " $numberofcores" cores."
+        echo "Changing the makeflags for "$numberofcores" cores."
+        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j5"/g' /etc/makepkg.conf
+        echo "Changing the compression settings for "$numberofcores" cores."
+        sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 4 -z -)/g' /etc/makepkg.conf
+        ;;
+    2)
+        echo "You have " $numberofcores" cores."
+        echo "Changing the makeflags for "$numberofcores" cores."
+        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j3"/g' /etc/makepkg.conf
+        echo "Changing the compression settings for "$numberofcores" cores."
+        sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 2 -z -)/g' /etc/makepkg.conf
+        ;;
+    *)
+        echo "We do not know how many cores you have."
+        echo "Do it manually."
+        ;;
+
+esac
+
+echo "################################################################"
+echo "###  All cores will be used during building and compression ####"
+echo "################################################################"
+echo ""
+echo "Please restart computer to apply changes"

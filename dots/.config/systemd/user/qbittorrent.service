@@ -1,0 +1,11 @@
+[Unit]
+Description=qBittorrent Service
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/qbittorrent-nox --daemon --webui-port=8113
+ExecStop=/usr/bin/killall -w qbittorrent-nox
+ 
+[Install]
+WantedBy=default.target

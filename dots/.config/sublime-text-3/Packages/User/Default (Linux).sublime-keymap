@@ -1,0 +1,30 @@
+[
+	// Preferences -> Keybindings
+	{ 
+	    "keys": ["ctrl+,"], "command": "edit_settings", "args":
+	    {
+	        "base_file": "${packages}/Default/Preferences.sublime-settings",
+	        "default": "// Settings in here override those in \"Default/Preferences.sublime-settings\",\n// and are overridden in turn by syntax-specific settings.\n{\n\t$0\n}\n"
+	    }
+	},
+	// Toggle Tabs: Add [Ctrl + Shift + t] shortcut to Keybindings:
+	{ "keys": ["ctrl+shift+t"], "command": "toggle_tabs" },
+	// Toggle Minimap
+	{ "keys": ["ctrl+k","ctrl+n"], "command": "toggle_minimap"},
+	// Toggle Menu
+	{ "keys": ["ctrl+k","ctrl+m"], "command": "toggle_menu"},
+	// Xiki
+	{ "keys": ["ctrl+k","ctrl+x"], "command": "new_xiki"},
+	// Origami shortcuts
+	{ "keys": [":", "b", "d"], "command": "destroy_pane", "args": {"direction": "self"} },
+	{ "keys": ["ctrl+k","escape"], "command": "destroy_pane", "args": {"direction": "self"} },
+    { "keys": ["alt+1"], "command": "move_to_group", "args": { "group": 0 } },
+    { "keys": ["alt+2"], "command": "move_to_group", "args": { "group": 1 } },
+    { "keys": ["alt+3"], "command": "move_to_group", "args": { "group": 2 } },
+    { "keys": ["alt+4"], "command": "move_to_group", "args": { "group": 3 } },
+    { "keys": ["alt+5"], "command": "move_to_group", "args": { "group": 4 } },
+    { "keys": ["alt+6"], "command": "move_to_group", "args": { "group": 5 } },
+    { "keys": ["alt+7"], "command": "move_to_group", "args": { "group": 6 } },
+    { "keys": ["alt+8"], "command": "move_to_group", "args": { "group": 7 } },
+    { "keys": ["alt+9"], "command": "move_to_group", "args": { "group": 8 } }
+]
