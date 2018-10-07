@@ -13,7 +13,7 @@ Configuration:
   ✔ trizen -S --noedit --noconfirm vivaldi-widevine  Test: https://bitmovin.com/mpeg-dash-hls-drm-test-player/ @done (18-06-06 17:05)
   ☐ test a /etc/hosts file from https://github.com/StevenBlack/hosts or http://someonewhocares.org/hosts/
   ✔ mopidy on arch linux https://gist.github.com/0x414A/11118592 @done (18-10-04 18:31)
-  ☐ remove unneeded packages (torrench, peerflix, canta...)
+  ✔ remove unneeded packages (torrench, peerflix, canta...) @done (18-10-07 13:32)
   ☐ pi-hole
   ☐ configure bluetooth  #(sleep 3; blueberry-tray) & ver arcolinux openbox y polybar
   ☐ configure thunar
