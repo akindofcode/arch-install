@@ -26,6 +26,8 @@ polybar top &
 
 numlockx & 
 
+thunar --daemon &
+
 # tint2 &
 
 # (sleep 2; volumeicon) &
