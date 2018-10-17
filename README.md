@@ -73,7 +73,7 @@ Window border width:
 
 Let's say you use the waldorf theme with openbox. You go to /usr/share/themes/waldorf/openbox-3/themerc and search the line
 
-border.Width: 1
+	border.Width: 1
 
 ### wallpaper
 
@@ -87,11 +87,11 @@ convert to jpg
 
 /.bin
 
-You can set your environment for Openbox in the ~/.config/openbox/environment.
+You can set your environment for Openbox in the ~/.config/openbox/environment
 
 Just add
 
-`PATH="$HOME/.bin:$PATH"; export PATH`
+	PATH="$HOME/.bin:$PATH"; export PATH
 
 ### Fonts
 
@@ -103,25 +103,23 @@ New fonts can be installed to /.local/share/fonts or /usr/share/fonts
 
 ### GRUB
 
-https://wiki.archlinux.org/index.php/GRUB/Tips_and_tricks
+<https://wiki.archlinux.org/index.php/GRUB/Tips_and_tricks>
 
 ### Silent Boot
-
-
 
 GRUB -> e -> quiet vga=current vt.global_cursor_default=0 udev.log_priority=3
 
 add to /etc/default/grub:
 
-`GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1 quiet vga=current vt.global_cursor_default=0 udev.log_priority=3"`
+	GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1 quiet vga=current vt.global_cursor_default=0 udev.log_priority=3"
 
 regenerate grub.cfg file:
 
-`# grub-mkconfig -o /boot/grub/grub.cfg`
+`sudo grub-mkconfig -o /boot/grub/grub.cfg`
 
 ### Hide Grub
 
-packer -S --noedit grub-silent 
+`packer -S --noedit grub-silent`
 
 - Reinstall GRUB first:
   
@@ -130,32 +128,27 @@ packer -S --noedit grub-silent
 - Then; look at "/etc/default/grub.silent" sample file
   and make necessary changes to "/etc/default/grub".
  
-`GRUB_DEFAULT=0`
-
-`GRUB_TIMEOUT=0`
-
-`GRUB_RECORDFAIL_TIMEOUT=$GRUB_TIMEOUT`
-
-`GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1 quiet loglevel=3 vga=current rd.systemd.show_status=false vt.global_cursor_default=0 udev.log_priority=3"`
+	GRUB_DEFAULT=0
+	GRUB_TIMEOUT=0
+	GRUB_RECORDFAIL_TIMEOUT=$GRUB_TIMEOUT
+	GRUB_CMDLINE_LINUX_DEFAULT="nvidia-drm.modeset=1 quiet loglevel=3 vga=current rd.systemd.show_status=false vt.global_cursor_default=0 udev.log_priority=3"
 
 Hide GRUB unless the Shift key is held down copy file /etc/grub.d/31_hold_shift
 
-`GRUB_FORCE_HIDDEN_MENU="true"`
+	GRUB_FORCE_HIDDEN_MENU="true"
 
-- finally, regenerate grub.cfg file:
+- Finally, regenerate grub.cfg file:
 
 `# grub-mkconfig -o /boot/grub/grub.cfg`
 
 Make GRUB remeber last chosen option:
 
-`GRUB_DEFAULT=saved`
-
-`GRUB_SAVEDEFAULT=true`
+	GRUB_DEFAULT=saved
+	GRUB_SAVEDEFAULT=true
 
 ### autologin without login manager
 
-
-`$ cp /etc/X11/xinit/xinitrc ~/.xinitrc`
+`cp /etc/X11/xinit/xinitrc ~/.xinitrc`
 
 `~/.xinitrc`
 
@@ -165,21 +158,18 @@ For Bash, add the following to the bottom of ~/.bash_profile. If the file does n
 
 For Zsh, add it to ~/.zprofile.
 
-`if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then`
-`  exec startx`
-`fi`
+	if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+	  exec startx
+	fi
 
 `touch ~/.hushlogin`
 
 /etc/systemd/system/getty@tty1.service.d/override.conf
 
-`[Service]`
-
-`Type=simple`
-
-`ExecStart=`
-
-`ExecStart=-/usr/bin/agetty --noissue --skip-login --login-options "-f chema" %I 38400 linux`
+	[Service]
+	Type=simple	
+	ExecStart=
+	ExecStart=-/usr/bin/agetty --noissue --skip-login --login-options "-f chema" %I 38400 linux
 
 Disable lightdm login manager
 
@@ -192,9 +182,21 @@ Disable lightdm login manager
 
 `du /var/cache/pacman/pkg -sh`
 
-`pacman -Sc`
+Recommended way to clean package cache in arch linux
 
-`pacman -Scc`
+<https://www.ostechnix.com/recommended-way-clean-package-cache-arch-linux/>
+
+`sudo ls /var/cache/pacman/pkg/ | wc -l`
+
+`du -sh /var/cache/pacman/pkg/`
+
+Keep only one most recent version:
+
+`sudo paccache -rk 1`
+
+To remove all cached versions of uninstalled packages:
+
+`sudo paccache -ruk0`
 
 ### Music
 
@@ -211,7 +213,7 @@ copyartifacts
 <https://github.com/sbarakat/beets-copyartifacts#development>
 
 if copyartifacts doesn't work replace /usr/lib/python3.6/site-packages/beetsplug/copyartifacts.py
-with https://raw.githubusercontent.com/sbarakat/beets-copyartifacts/master/beetsplug/copyartifacts.py
+with <https://raw.githubusercontent.com/sbarakat/beets-copyartifacts/master/beetsplug/copyartifacts.py>
 
 fetchart
 
@@ -221,7 +223,7 @@ fetchart
 
 Add Music to /etc/fstab
 
-/dev/sdd1 /run/media/chema/Music ntfs-3g uid=chema gid=users 0 0
+	/dev/sdd1 /run/media/chema/Music ntfs-3g uid=chema gid=users 0 0
 
 ### lightdm not starting
 
@@ -255,23 +257,21 @@ Now edit them (as root), changing the ‘OnCalendar=daily’ to ‘OnCalendar=we
 
 So ‘man-db.timer’ goes from:
 
-[Unit]
-Description=Daily man-db cache update
-
-[Timer]
-OnCalendar=daily
-AccuracySec=1d
-Persistent=true
+	[Unit]
+	Description=Daily man-db cache update
+	[Timer]
+	OnCalendar=daily
+	AccuracySec=1d
+	Persistent=true
 
 To:
 
-[Unit]
-Description=Daily man-db cache update
-
-[Timer]
-OnCalendar=weekly
-AccuracySec=1d
-Persistent=true
+	[Unit]
+	Description=Daily man-db cache update
+	[Timer]
+	OnCalendar=weekly
+	AccuracySec=1d
+	Persistent=true
 
 
 At your next reboot the boot time will be faster.
@@ -286,12 +286,11 @@ copy sshd_config to /etc/ssh
 
 `sudo systemctl edit sshd.socket`
 
-[Socket]
-ListenStream=43333
+	[Socket]
+	ListenStream=43333
+	FreeBind=true
 
-FreeBind=true
-
-launch sshd service
+Launch sshd service
 
 `sudo systemctl enable sshd.socket`
 
@@ -303,19 +302,23 @@ launch sshd service
 
 Once you install mps-youtube, launch it with:
 
-$ mpsyt
+`mpsyt`
+
 Then type h to see the options. For quick usage, you can just do:
 
-/[query]
+	/[query]
+
 to search for something, then type the number ID of the video to listen to its sound, or type:
 
-i [video-number]
+	i [video-number]
+
 to see its information, and type:
 
-d [video-number]
+	d [video-number]
+
 to download it. If just listening is not enough for you, here is the trick:
 
-set player mpv
-set show_video True
-set max_res 1080
-set fullscreen True
+	set player mpv
+	set show_video True
+	set max_res 1080
+	set fullscreen True
