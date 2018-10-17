@@ -14,16 +14,16 @@ Configuration:
   ☐ test a /etc/hosts file from https://github.com/StevenBlack/hosts or http://someonewhocares.org/hosts/
   ✔ mopidy on arch linux https://gist.github.com/0x414A/11118592 @done (18-10-04 18:31)
   ✔ remove unneeded packages (torrench, peerflix, canta...) @done (18-10-07 13:32)
-  ☐ pi-hole
   ☐ configure bluetooth  #(sleep 3; blueberry-tray) & ver arcolinux openbox y polybar
   ☐ configure thunar
-  ☐ autostart   #thunar starting in daemon mode -> thunar --daemon &
+  ✔ autostart   #thunar starting in daemon mode -> thunar --daemon & @done (18-10-17 19:41)
   ✔ vivaldi sync @done (18-10-04 18:33)
   ✔ one wallpaper per desktop @done (18-10-04 18:34)
   ✔ try color schemes (termite, urxvt, dunst, etc) pywal @done (18-10-04 18:33)
   ☐ pywal / wpgtk pipeline for wpgtk: https://github.com/domsch1988/consave/blob/master/full/openbox/wpgtkmenu.sh
   ☐ config zsh
-  ☐ prepare installation to SSD (create new 24 - 32 gb partition) Disk management - Shrink volume - (32768)
+  ☐ config vim
+  ☐ prepare installation to SSD (create new 24 - 32 gb partition) Disk management - Shrink volume - (24576 / 32768)
   ☐ optimize ssd on linux 
   ☐ optimize boot time
 
@@ -45,4 +45,4 @@ Icons & fonts:
   ✔ Fira Code @done (18-05-30 17:32)
   ☐ Roboto
   ☐ Hack
-  ☐ monokai
+  ✔ monokai @done (18-10-17 19:42)
