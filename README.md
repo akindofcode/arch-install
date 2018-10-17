@@ -1,45 +1,50 @@
 # arch-install
 
-Info on installing and ricing arch linux + dot files backup
+info on installing and ricing arch linux + dot files backup
 
-Baseline: arch-linux-base-devel + openbox + lightdm + rxvt-unicode + vim + git + ntfs-3g + nvidia
+### Baseline
+
+arch-linux-base-devel + openbox + lightdm + rxvt-unicode + vim + git + ntfs-3g + nvidia
 
 `git clone https://github.com/akindofcode/arch-install.git`
 
-### sudo with no password
+### Sudo with no password
 
 sudo visudo. Make wheel group can perform sudo without asking password. Example in /etc/sudoers.
 
 	%wheel ALL=(ALL) NOPASSWD: ALL
 
-### remove fsck
+### Remove fsck
 
 remove fsck from HOOKS=(...) in /etc/mkinitpcio.conf
 
 `sudo mkinitcpio -p linux`
 
-### ignore package update
+### Ignore package update
 
-sudo vim /etc/pacman.conf
+`sudo vim /etc/pacman.conf`
 
 add:
 
-`IgnorePkg = sublime-text`
+	IgnorePkg = sublime-text
 
 ### Locale and keymap
 
 uncomment line "en_GB.UTF-8" from /etc/locale.gen
 
-	sudo locale-gen
-	sudo echo LANG=en_GB.UTF-8 > /etc/locale.conf
-	sudo localectl set-keymap es
-	sudo localetcl set-x11-keymap es
+`sudo locale-gen`
 
-### fix locale
+`sudo echo LANG=en_GB.UTF-8 > /etc/locale.conf`
+
+`sudo localectl set-keymap es`
+
+`sudo localetcl set-x11-keymap es`
+
+### Fix locale
 
 `export LC_CTYPE=$LANG`
 
-### nvidia
+### Nvidia drivers
 
 Fix screen tearing: in nvidia-settings 'Force Coposition Pipeline' (server display configuration - advanced)
 
@@ -49,25 +54,25 @@ Disable second screen and save
 
 ### xrandr
 
-#first screen only
+first screen only
 
 `xrandr --output DVI-I-1 --auto --output DVI-D-0 --off`
 
-#second screen only
+second screen only
 
 `xrandr --output DVI-I-1 --off --output DVI-D-0 --auto`
 
-#extend
+extend
 
 `xrandr --output DVI-I-1 --auto --primary --output DVI-D-0 --auto --left-of`
 
-#mirror
+mirror
 
 `xrandr --output DVI-I-1 --auto --output DVI-D-0 --auto --same-as DVI-I-1`
 
-### openbox theming
+### Openbox theming
 
-Openbox wiki: http://openbox.org/wiki/Help:Contents#Configuration
+Openbox wiki: <http://openbox.org/wiki/Help:Contents#Configuration>
 
 Window border width:
 
@@ -75,7 +80,7 @@ Let's say you use the waldorf theme with openbox. You go to /usr/share/themes/wa
 
 	border.Width: 1
 
-### wallpaper
+### Wallpaper
 
 `nitrogen ~/wallpapers`
 
@@ -83,9 +88,9 @@ convert to jpg
 
 `mogrify -format jpg *.png`
 
-### pipelines, toys...
+### Pipelines, toys...
 
-/.bin
+place in ~/.bin
 
 You can set your environment for Openbox in the ~/.config/openbox/environment
 
@@ -95,9 +100,9 @@ Just add
 
 ### Fonts
 
-Place windows fonts in /fonts/WindowsFonts before running script 005. Check vivaldi fonts.
+place windows fonts in /fonts/WindowsFonts before running script 003. Check vivaldi fonts.
 
-New fonts can be installed to /.local/share/fonts or /usr/share/fonts
+new fonts can be installed to /.local/share/fonts or /usr/share/fonts
 
 `fc-cache -fv`
 
@@ -146,7 +151,7 @@ Make GRUB remeber last chosen option:
 	GRUB_DEFAULT=saved
 	GRUB_SAVEDEFAULT=true
 
-### autologin without login manager
+### Autologin without login manager
 
 `cp /etc/X11/xinit/xinitrc ~/.xinitrc`
 
@@ -177,10 +182,7 @@ Disable lightdm login manager
 
 `sudo pacman -Rd lightdm lightdm-gtk-greeter`
 
-
 ### Maintenance
-
-`du /var/cache/pacman/pkg -sh`
 
 Recommended way to clean package cache in arch linux
 
@@ -202,9 +204,9 @@ To remove all cached versions of uninstalled packages:
 
 Beets configured
 
-play [query] to create playlist and play
-W-c  -> cava
-W-l  -> show lyrics to current song
+	play [query] to create playlist and play
+	W-c  -> cava
+	W-l  -> show lyrics to current song
 
 Plugins: 
 
@@ -227,8 +229,8 @@ Add Music to /etc/fstab
 
 ### lightdm not starting
 
-[LightDM]
-   logind-check-graphical=true
+	[LightDM]
+   	logind-check-graphical=true
 
 ### fastest boot
 
