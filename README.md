@@ -4,13 +4,13 @@ Info on installing and ricing arch linux + dot files backup
 
 Baseline: arch-linux-base-devel + openbox + lightdm + rxvt-unicode + vim + git + ntfs-3g + nvidia
 
-	git clone https://github.com/akindofcode/arch-install.git
+`git clone https://github.com/akindofcode/arch-install.git`
 
 ### sudo with no password
 
 sudo visudo. Make wheel group can perform sudo without asking password. Example in /etc/sudoers.
 
-%wheel ALL=(ALL) NOPASSWD: ALL
+	%wheel ALL=(ALL) NOPASSWD: ALL
 
 ### remove fsck
 
@@ -30,13 +30,10 @@ add:
 
 uncomment line "en_GB.UTF-8" from /etc/locale.gen
 
-`sudo locale-gen`
-
-`sudo echo LANG=en_GB.UTF-8 > /etc/locale.conf`
-
-`sudo localectl set-keymap es`
-
-`sudo localetcl set-x11-keymap es`
+	sudo locale-gen
+	sudo echo LANG=en_GB.UTF-8 > /etc/locale.conf
+	sudo localectl set-keymap es
+	sudo localetcl set-x11-keymap es
 
 ### fix locale
 
