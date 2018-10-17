@@ -57,6 +57,13 @@ sudo chown root:root /etc/polkit-1/rules.d/00-mount-internal.rules
 
 echo "### mount problems fixed ###"
 
+echo "### adding pacman hook ###"
+
+sudo cp init/clean_package_cache.hook /etc/pacman.d/hooks/
+sudo chown root:root /etc/pacman.d/hooks/clean_package_cache.hook
+
+echo "### pacman hook added ###"
+
 echo "### fixing time sync ###"
 
 sudo pacman -S --noconfirm --needed ntp
