@@ -227,12 +227,12 @@ Add Music to /etc/fstab
 
 	/dev/sdd1 /run/media/chema/Music ntfs-3g uid=chema gid=users 0 0
 
-### lightdm not starting
+### Lightdm not starting
 
 	[LightDM]
    	logind-check-graphical=true
 
-### fastest boot
+### Faster boot
 
 `systemd-analyze blame`
 
@@ -282,7 +282,7 @@ You can check the timers enabled in your system using this command:
 
 `systemctl list-timers --all`
 
-### ssh
+### Ssh
 
 copy sshd_config to /etc/ssh
 
@@ -300,7 +300,7 @@ Launch sshd service
 
 `ssh -p 43333 chema@192.168.0.11`
 
-### mps-youtube
+### Mps-youtube
 
 Once you install mps-youtube, launch it with:
 
