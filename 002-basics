@@ -7,6 +7,8 @@ sudo pacman -S --noconfirm --needed vivaldi vivaldi-ffmpeg-codecs termite pcmanf
 
 trizen -S --noedit --noconfirm vivaldi-widevine
 
+trizen -S --noedit --noconfirm  arch-wiki-man
+
 echo "### basic apps installed ###"
 
 echo "### installing openbox related apps ###"
