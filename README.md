@@ -4,7 +4,7 @@ Info on installing and ricing arch linux + dot files backup
 
 Baseline: arch-linux-base-devel + openbox + lightdm + rxvt-unicode + vim + git + ntfs-3g + nvidia
 
-`git clone https://github.com/akindofcode/arch-install.git`
+	git clone https://github.com/akindofcode/arch-install.git
 
 ### sudo with no password
 
