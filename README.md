@@ -90,9 +90,7 @@ convert to jpg
 
 ### Pipelines, toys...
 
-place in ~/.bin
-
-You can set your environment for Openbox in the ~/.config/openbox/environment
+place in ~/.bin. You can set your environment for Openbox in the ~/.config/openbox/environment 
 
 Just add
 
@@ -126,12 +124,12 @@ regenerate grub.cfg file:
 
 `packer -S --noedit grub-silent`
 
-- Reinstall GRUB first:
+Reinstall GRUB first:
   
 `sudo grub-install --target=i386-pc /dev/sdf`
  
-- Then; look at "/etc/default/grub.silent" sample file
-  and make necessary changes to "/etc/default/grub".
+Then; look at "/etc/default/grub.silent" sample file
+  and make necessary changes to "/etc/default/grub"
  
 	GRUB_DEFAULT=0
 	GRUB_TIMEOUT=0
@@ -159,9 +157,7 @@ Make GRUB remeber last chosen option:
 
 `exec openbox-session`
 
-For Bash, add the following to the bottom of ~/.bash_profile. If the file does not exist, copy a skeleton version from /etc/skel/.bash_profile. 
-
-For Zsh, add it to ~/.zprofile.
+For Bash, add the following to the bottom of ~/.bash_profile. If the file does not exist, copy a skeleton version from /etc/skel/.bash_profile. For Zsh, add it to ~/.zprofile.
 
 	if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 	  exec startx
