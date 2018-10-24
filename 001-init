@@ -59,6 +59,7 @@ echo "### mount problems fixed ###"
 
 echo "### adding pacman hook ###"
 
+sudo mkdir /etc/pacman.d/hooks
 sudo cp init/clean_package_cache.hook /etc/pacman.d/hooks/
 sudo chown root:root /etc/pacman.d/hooks/clean_package_cache.hook
 
@@ -68,7 +69,7 @@ echo "### fixing time sync ###"
 
 sudo pacman -S --noconfirm --needed ntp
 sudo ntpd -qg
-hwclock --systohc
+sudo hwclock --systohc
 
 echo "### time sync fixed ###"
 
@@ -80,7 +81,7 @@ echo "### intel-ucode has been installed ###"
 
 echo "### installing grub-silent ###"
 
-trizen -S --noedit --noconfirm grub-silent
+trizen -S --noedit grub-silent
 
 echo "### grub-silent has been installed ###"
 
@@ -90,13 +91,8 @@ sudo grub-install --target=i386-pc /dev/sda
 
 echo "### grub has been re-installed ###"
 
-sudo cp /etc/default/grub /etc/default/grub.bak
-sudo cp init/grub /etc/default/grub
-sudo cp init/31_hold_shift /etc/grub.d
-
 echo "### regenerating grub configuration ###"
 
-sudo cp /etc/default/grub /etc/default/grub.bak
 sudo cp init/grub /etc/default/grub
 sudo cp init/31_hold_shift /etc/grub.d
 sudo grub-mkconfig -o /boot/grub/grub.cfg

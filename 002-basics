@@ -13,7 +13,9 @@ echo "### basic apps installed ###"
 
 echo "### installing openbox related apps ###"
 
-sudo pacman -S --noconfirm --needed obconf lxappearance-gtk3 lxappearance-obconf-gtk3 neofetch oblogout zenity dunst menu feh nitrogen rofi xfce4-appfinder gmrun numlockx compton python-wal
+sudo pacman -S --noconfirm --needed obconf lxappearance-gtk3 lxappearance-obconf-gtk3 neofetch oblogout zenity dunst feh nitrogen rofi xfce4-appfinder gmrun numlockx compton 
+
+# check these: menu python-wal
 
 trizen -S --noconfirm --noedit obmenu3 obmenu-generator obkey
 
@@ -28,8 +30,12 @@ echo "### zippers and unzippers installed ###"
 echo "### installing polybar ###"
 
 # tools needed for polybar
+
 sudo pacman -S --noconfirm --needed wireless_tools jq libmpdclient
+
 trizen -S --noconfirm --noedit ttf-weather-icons
+
+# polybar 
 
 trizen -S --noconfirm --noedit polybar-git
 
