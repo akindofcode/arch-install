@@ -13,7 +13,7 @@ sudo pacman -S --needed --noconfirm mpd ncmpcpp mpc mpv youtube-dl
 
 trizen -S --noedit --noconfirm beets beets-copyartifacts-git python-discogs-client spotify cava pulsemixer
 
-sudo pacman -S --needed --noconfirm python-pip python-requests python-pylast kid3
+sudo pacman -S --needed --noconfirm python-pip python-requests python-pylast
 
 echo "### music apps installed ###"
 
