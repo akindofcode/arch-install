@@ -19,4 +19,4 @@ echo "### aur packages updated ###"
 # refresh polybar
 polybar-msg cmd restart
 
-read -n1 -r -p ''
+#read -n1 -r -p ''
