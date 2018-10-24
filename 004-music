@@ -38,28 +38,3 @@ echo "enable linger for your user by running"
 echo "\"loginctl enable-linger $username\""
 echo " "
 echo "Otherwise simply run "mpd" as user now."
-
-echo ""
-echo "### installing mopidy ###"
-echo ""
-
-sudo pacman -S mopidy
-trizen -S --noedit --noconfig mopidy-spotify
-trizen -S --noedit --noconfig mopidy-iris
-trizen -S --noedit --noconfig mopidy-local-sqlite
-sudo pip2 uninstall tornado
-sudo pip2 install tornado==4.5.3 
-
-
-mkdir -p ~/.config/mopidy
-cp dots/.config/mopidy/mopidy.conf ~/.config/mopidy
-
-echo "### mopidy configured ###"
-
-echo "setting up systemd --user mopidy service."
-systemctl --user enable mopidy
-systemctl --user start mopidy
-echo "### mopidy setup complete ###"
-
-echo "run mopidy local scan in order to scan music library"
-

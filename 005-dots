@@ -30,16 +30,9 @@ systemctl --user start mpdsonglisten
 
 echo "### mpdsonglisten installed ###"
 
-echo "### installing mopidysonglisten service ###"
-
-systemctl --user enable mopidysonglisten
-systemctl --user start mopidysonglisten
-
-echo "### mopidysonglisten installed ###"
-
 echo "### installing qBittorrent"
 
-sudo pacman -S qbittorrent-nox
+sudo pacman -S --noconfirm --needed qbittorrent-nox
 
 systemctl --user enable qbittorrent.service
 systemctl --user start qbittorrent.service
