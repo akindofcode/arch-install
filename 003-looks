@@ -22,6 +22,10 @@ trizen -S --noconfirm --noedit ttf-font-awesome-4 ttf-mononoki ttf-fira-code
 sudo cp -r fonts/WindowsFonts /usr/share/fonts/
 sudo chmod 755 /usr/share/fonts/WindowsFonts/*
 
+#install ttf-weather-icons font
+sudo cp -r fonts/TTF/weathericons-regular-webfont.ttf /usr/share/fonts/TTF
+sudo chmod 755 /usr/share/fonts/TTF/weathericons-regular-webfont.ttf
+
 #to make full use of the MS fonts it is necessary to create a rule mapping those generic names to MS specific fonts
 sudo cp init/99-user.conf /etc/fonts/conf.d/
 
