@@ -3,7 +3,7 @@ set -e
 
 echo "### installing basic apps ###"
 
-sudo pacman -S --noconfirm --needed vivaldi vivaldi-ffmpeg-codecs termite pcmanfm-gtk3 htop scrot imagemagick thunar gvfs thunar-volman ranger w3m sublime-text/sublime-text
+sudo pacman -S --noconfirm --needed vivaldi vivaldi-ffmpeg-codecs termite pcmanfm-gtk3 htop scrot imagemagick thunar gvfs thunar-volman ranger w3m sublime-text/sublime-text vim
 
 trizen -S --noedit --noconfirm vivaldi-widevine
 
