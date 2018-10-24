@@ -12,7 +12,7 @@ mpc_query() {
 # obtain lyrics from mp3 file
 id3_lyrics() {
 	local file="$1"
-	kid3-cli -c "get Lyrics" "$file"
+	kid3-cli -c "get Lyrics" "$file" 2>/dev/null
 }
 
 save_id3_lyrics() {
@@ -52,6 +52,6 @@ file="$MPD_LIBRARY"/$(mpc_query %file%)
 
 lyrics=$(get_lyrics "$file" "$artist" "$title")
 
-printf "%s - %s\n%s\n" "$artist" "$title" "$lyrics"
+printf "%s - %s\n\n%s\n" "$artist" "$title" "$lyrics"
 
 read -n1 -r -p ''
