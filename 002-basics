@@ -7,7 +7,7 @@ sudo pacman -S --noconfirm --needed vivaldi vivaldi-ffmpeg-codecs termite pcmanf
 
 trizen -S --noedit --noconfirm vivaldi-widevine
 
-trizen -S --noedit --noconfirm  arch-wiki-man
+trizen -S --noedit --noconfirm  arch-wiki-man gotop-bin
 
 echo "### basic apps installed ###"
 
