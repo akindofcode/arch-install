@@ -102,6 +102,14 @@ echo "### grub configuration regenerated ###"
 # copy /etc/hosts file with adblock
 # sudo cp init/hosts /etc/
 
+echo "### optimizing boot time ###"
+
+sudo systemctl mask lvm2-monitor 
+sudo systemctl mask lvm2-lvmetad 
+sudo systemctl mask lvm2-lvmetad.socket  
+
+echo "### boot time optimized ###"
+
 echo "### installing jshon expac wget reflector pacman-contrib ###"
 
 sudo pacman -S --noconfirm --needed jshon expac wget reflector pacman-contrib
@@ -176,3 +184,6 @@ echo "###  All cores will be used during building and compression ####"
 echo "################################################################"
 echo ""
 echo "Please restart computer to apply changes"
+
+
+  
