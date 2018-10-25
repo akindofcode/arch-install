@@ -4,6 +4,7 @@ Configure:
   ☐ config polybar
   ☐ config thunar
   ☐ optimize boot time
+  ☐ optimize keybinds
 
 Configuration:
   ✔ Packer -> Trizen in scripts and test @done (18-05-30 14:16)
