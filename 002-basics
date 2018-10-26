@@ -48,4 +48,15 @@ echo "### installing oh-my-zsh ###"
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 echo "### oh-my-zsh installed ###"
+
+echo "### installing oh-my-zsh plugins ###"
+
+cd ~/.oh-my-zsh/custom/plugins
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting
+
+git clone https://github.com/zsh-users/zsh-autosuggestions
+
+echo "### oh-my-zsh plugins installed ###"
+
 echo "If you now log out and log in again, you will be greeted by the other shell (chsh -s /bin/zsh)"
