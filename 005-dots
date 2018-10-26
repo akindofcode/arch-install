@@ -68,6 +68,11 @@ sudo cp vivaldi/*.css /opt/vivaldi/resources/vivaldi/style
 sudo cp -R vivaldi/arc /opt/vivaldi/resources/vivaldi/style
 sudo cp vivaldi/browser.html /opt/vivaldi/resources/vivaldi/
 
+cd /.cache
+rm -rf vivaldi
+ln -s /tmp vivaldi
+ln -s /run/media/chema/Data/VARIOS/archlinux/spotify/ spotify 
+
 echo "!!! You need to modify the Vivaldi Theme by hand !!!"
 echo "Check values at https://github.com/Tiamarth/Arc-for-Vivaldi"
 echo "Add arc.css to browser.html"
