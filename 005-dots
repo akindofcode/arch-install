@@ -45,22 +45,6 @@ xdg-mime default qbittorrent2.desktop application/x-bittorrent
 
 echo "### qBittorrent installed ###"
 
-# echo "### installing rtorrent ###"
-
-# sudo pacman -S --noconfirm --needed screen rtorrent
-
-# mkdir -p ~/rtorrent
-# cp .rtorrent.rc ~/
-
-# systemctl --user enable rtorrent
-# systemctl --user start rtorrent
-
-# mkdir -p ~/.local/share/applications/
-# cp .local/share/applications/rtorrent-magnet.desktop ~/.local/share/applications/
-# xdg-mime default rtorrent-magnet.desktop x-scheme-handler/magnet
-
-# echo "### rtorrent installed ###"
-
 echo "### configuring vivaldi ###"
 
 # copy vivaldi conf - check for updates at https://github.com/Tiamarth/Arc-for-Vivaldi
