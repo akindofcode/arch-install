@@ -93,7 +93,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias play='beet play'
+alias play='beet play year+ album+ track+'
 alias install='trizen -S --noedit --noconfirm'
 alias neofetch='clear; neofetch'
 
