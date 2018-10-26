@@ -33,6 +33,7 @@ Configuration:
 Vivaldi cache:
   ✔ move cache & test -> add to git @done (18-06-06 17:01)
   ✔ cd /.cache ; rm -rf vivaldi ; ln -s /tmp vivaldi @done (18-06-01 21:31)
+  ✔ ln -s /run/media/chema/Data/VARIOS/archlinux/spotify/ spotify @done (18-10-26 19:01)
   ✔ is persitence needed? no @done (18-06-06 17:01)
   ✔ --disk-cache-dir=z:\vivaldi\ --disk-cache-size=104857600   (/tmp is a tmpfs ) -> findmnt --target /tmp @done (18-06-06 17:01)
   ✔ --process-per-site @done (18-06-06 17:01)
