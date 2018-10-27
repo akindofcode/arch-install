@@ -668,11 +668,11 @@
       </action>
     </keybind>
     <!-- Programs keybindings -->
-    <keybind key="C-space">
+    <!--<keybind key="C-space">
       <action name="Execute">
         <command>rofi -modi ssh,window,drun,run -show drun -fullscreen -font "Noto Sans 10"</command>
       </action>
-    </keybind>
+    </keybind>-->
     <keybind key="C-Shift-space">
       <action name="Execute">
         <command>rofi -modi ssh,window,drun,run -show drun -font "Noto Sans 10"</command>
