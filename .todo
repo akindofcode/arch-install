@@ -1,8 +1,16 @@
 Configure:
   ☐ config zsh
+        https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins
+        https://github.com/zsh-users/zsh-syntax-highlighting
+        https://github.com/zsh-users/zsh-autosuggestions
+  ☐ config mpv
+        https://mpv.io/manual/master/#cache
   ☐ config vim
   ☐ config polybar
   ☐ config thunar
+  ☐ config alexa
+        https://github.com/devicehive/AlexaDevice
+        https://github.com/alexa-pi/AlexaPi/wiki/Installation
   ☐ optimize boot time
   ☐ optimize keybinds
 
