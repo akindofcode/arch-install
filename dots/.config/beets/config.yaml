@@ -13,7 +13,7 @@ import:
 
 format_item: $artist - $album [$year] - $title
 format_album: $albumartist - $album [$year]
-sort_item: artist+ year+ album+ disc+ track+
+sort_item: albumartist+ year+ album+ disc+ track+
 sort_album: albumartist+ year+ album+
 original_date: yes 
 
