@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Simple script to switch displays
+# As both screens appear as 'connected', look for 'mm x' string
+display=$(xrandr | grep 'mm x' | awk '{print $1}' | head -1)
+
+echo $display
+
+if [ "$display" == "DVI-I-1" ]; then
+   xrandr --output DVI-I-1 --off --output DVI-D-0 --auto
+   echo "Monitor off"
+fi
+if [ "$display" == "DVI-D-0" ]; then
+   xrandr --output DVI-D-0 --off --output DVI-I-1 --auto
+   echo "Monitor on"
+fi

@@ -559,7 +559,7 @@
     <!-- CAMBIAR -->
     <keybind key="W-p">
       <action name="Execute">
-        <command>mons -n left</command>
+        <command>display</command>
       </action>
     </keybind>
     <keybind key="W-a">
