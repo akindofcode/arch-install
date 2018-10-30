@@ -9,7 +9,8 @@ echo "### pacman packages updated ###"
 # clean pacman cache
 sudo pacman -Sc --noconfirm --clean --clean
 
-echo "### pacman cache cleaned ###"
+#echo "### pacman cache cleaned ###"
+sudo paccache -rk 2
 
 # update aur packages
 trizen -Syua --noconfirm --noedit
@@ -19,4 +20,4 @@ echo "### aur packages updated ###"
 # refresh polybar
 polybar-msg cmd restart
 
-#read -n1 -r -p ''
+read -n1 -r -p ''
