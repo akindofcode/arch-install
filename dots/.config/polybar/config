@@ -1,71 +1,82 @@
-[bar/top]
-width = 100%
-height = 18
-offset-x = 0
-offset-y = -1 
-;bottom = true
-enable-ipc = true
 
-#monitor = "DVI-I-1"
-#monitor = "VGA-1"
-;background = #5a000000
-background = #dd0a0c19
+          ██▓███   ▒█████   ██▓    ▓██   ██▓ ▄▄▄▄    ▄▄▄       ██▀███  
+         ▓██░  ██▒▒██▒  ██▒▓██▒     ▒██  ██▒▓█████▄ ▒████▄    ▓██ ▒ ██▒
+         ▓██░ ██▓▒▒██░  ██▒▒██░      ▒██ ██░▒██▒ ▄██▒██  ▀█▄  ▓██ ░▄█ ▒
+         ▒██▄█▓▒ ▒▒██   ██░▒██░      ░ ▐██▓░▒██░█▀  ░██▄▄▄▄██ ▒██▀▀█▄  
+         ▒██▒ ░  ░░ ████▓▒░░██████▒  ░ ██▒▓░░▓█  ▀█▓ ▓█   ▓██▒░██▓ ▒██▒
+         ▒▓▒░ ░  ░░ ▒░▒░▒░ ░ ▒░▓  ░   ██▒▒▒ ░▒▓███▀▒ ▒▒   ▓▒█░░ ▒▓ ░▒▓░
+         ░▒ ░       ░ ▒ ▒░ ░ ░ ▒  ░ ▓██ ░▒░ ▒░▒   ░   ▒   ▒▒ ░  ░▒ ░ ▒░
+         ░░       ░ ░ ░ ▒    ░ ░    ▒ ▒ ░░   ░    ░   ░   ▒     ░░   ░ 
+                      ░ ░      ░  ░ ░ ░      ░            ░  ░   ░     
+                                    ░ ░           ░
+
+
+################################################################################
+                                                                        # COLORS
+                                                                        ########
+[colors]
+background = #0a0c19
 foreground = #bdc1bc
 
+active = #0c977f
+inactive  = #086757
 
-;underline-size = 0
-;underline-color = #eee
+################################################################################
+                                                                        # TOPBAR
+                                                                        ########                                       
+[bar/top]
+monitor = "DVI-I-1"
+width = 100%
+height = 18
+fixed-center = true
+offset-x = 0
+offset-y = -1 
+enable-ipc = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-top-size = 1
+border-right-size = 0
+border-left-size = 0
+border-bottom-size = 1
+border-color = ${colors.background}
 
 spacing = 1
 padding-left = 0
 padding-right = 0
 module-margin-left = 0 
 module-margin-right = 0
-
-;font-0 = Hack Nerd Font Mono:style=Regular:pixelsize=8
-font-0 = Noto Sans:pixelsize=8;2
-font-1 = FontAwesome:size=9;3
-;font-2 = siji:pixelsize=10;3
-font-2 = Weather Icons:size=8;3
-
-modules-left = ewmh xwindow
-modules-center = mpd mopidy 
-modules-right = wlan arch-updates volume openweathermap-detailed date powermenu
-
 override-redirect = false
 
-;tray-position = right
-;tray-padding = 2
-;tray-background = #66333333
+font-0 = "Noto Mono for Powerline":size=8:antialias=true;2
+;font-0 = Noto Sans:pixelsize=8:antialias=true;2
+font-1 = FontAwesome:size=9;3
+font-2 = Weather Icons:size=8;3
+font-3 = PowerlineSymbols:size=11;3
+;font-0 = Hack Nerd Font Mono:style=Regular:pixelsize=8
+;font-2 = siji:pixelsize=10;3
 
-; MODULES
-
+modules-left = ewmh xwindow
+modules-center = mpd ;mopidy 
+modules-right = wlan arch-updates volume openweathermap-detailed date powermenu
+################################################################################
+                                                                          # EWMH
+                                                                          ######
 [module/ewmh]
 type = internal/xworkspaces
 
 icon-0 = web;
-icon-1 = music;
+icon-1 = music;
 icon-2 = terminal;
 icon-3 = code;
 icon-4 = files;
 icon-5 = video;
 icon-default = 
-;                
+;                 #                 
 
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
 pin-workspaces = true
-
-; Create click handler used to focus desktop
-; Default: true
 enable-click = true
-
-; Create scroll handlers used to cycle desktops
-; Default: true
 enable-scroll = false
 
 ; Available tags:
@@ -74,51 +85,35 @@ enable-scroll = false
 ; Default: <label-state>
 format = <label-state>
 
-; Available tokens:
-;   %name%
-; Default: %name%
 label-monitor = %name%
-
 ; Available tokens:
 ;   %name%
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
 label-active = %icon%
-;label-active-background = #88000000
-label-active-background = #0a0c19
+;label-active = %{B#0c977f F#0a0c19}%{B- F-}%{B#0c977f F#b9fafc}%icon%%{B- F-}%{B#0a0c19 F#0c977f}%{B- F-}
+label-active-background = ${colors.background}
 label-active-padding = 2
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
 label-occupied = %icon%
 label-occupied-padding = 2
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%
 label-urgent = %icon%
 label-urgent-padding = 2
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
 label-empty = %icon%
 label-empty-foreground = #44ffffff
 label-empty-padding = 2
-
+################################################################################
+                                                                       # XWINDOW
+                                                                       #########
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:120:...%
 label-padding = 4
-
+################################################################################
+                                                                       	  # DATE
+                                                                          ######
 [module/date]
 type = internal/date
 interval = 1.0
@@ -147,7 +142,9 @@ type = custom/text
 content = 	 
 content-foreground = #00000000
 content-background = #55000000
-
+################################################################################
+                                                                        # VOLUME
+                                                                        ########
 [module/volume]
 type = internal/alsa
 
@@ -163,7 +160,9 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-headphones-0 = 
-
+################################################################################
+                                                                     # POWERMENU
+                                                                     ###########
 [module/powermenu]
 type = custom/menu
 
@@ -193,7 +192,9 @@ menu-1-0-padding = 1
 menu-2-0 = power off?  
 menu-2-0-exec = systemctl poweroff
 menu-2-0-padding = 1
-
+################################################################################
+                                                                     	   # MPD
+                                                                    	   #####
 [module/mpd]
 type = internal/mpd
 
@@ -235,6 +236,9 @@ format-online-padding = 2
 
 ;click-left = xdotool set_desktop 1
 
+################################################################################
+                                                                     	# MOPIDY
+                                                                    	########
 [module/mopidy]
 type = internal/mpd
 
@@ -247,7 +251,9 @@ format-online = <label-song>
 ;label-song =     %title% / %artist%
 label-song = %title% / %artist%
 format-online-padding 
-
+################################################################################
+                                                                     	  # WLAN
+                                                                    	  ######
 [module/wlan]
 type = internal/network
 ;interface = enp0s3
@@ -256,11 +262,14 @@ interval = 3.0
 
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-connected =  %downspeed:9%
+label-connected =  %downspeed:9%    %upspeed:9%
+;label-connected =  %downspeed:9%
 label-connected-padding = 2
 label-disconnected-padding = 2
 label-disconnected = not connected
-
+################################################################################
+                                                                  # ARCH-UPDATES
+                                                                  ##############
 [module/arch-updates]
 type = custom/script
 exec = ~/.config/polybar/scripts/arch-updates.sh 2>/dev/null
@@ -273,6 +282,9 @@ label = %output%
 
 click-left = termite -e ~/.bin/update-system
 
+################################################################################
+                                                                       # WEATHER
+                                                                       #########
 [module/openweathermap-detailed]
 type = custom/script
 interval = 60
