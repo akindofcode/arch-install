@@ -23,8 +23,9 @@ sudo cp -r fonts/WindowsFonts /usr/share/fonts/
 sudo chmod 755 /usr/share/fonts/WindowsFonts/*
 
 #install ttf-weather-icons font
-sudo cp -r fonts/TTF/weathericons-regular-webfont.ttf /usr/share/fonts/TTF
+sudo cp -r fonts/TTF/* /usr/share/fonts/TTF
 sudo chmod 755 /usr/share/fonts/TTF/weathericons-regular-webfont.ttf
+sudo chmod 755 /usr/share/fonts/TTF/Noto\ Mono\ for\ Powerline.ttf 
 
 #to make full use of the MS fonts it is necessary to create a rule mapping those generic names to MS specific fonts
 sudo cp init/99-user.conf /etc/fonts/conf.d/
