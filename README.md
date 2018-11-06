@@ -280,6 +280,8 @@ You can check the timers enabled in your system using this command:
 
 ### Ssh
 
+`sudo pacman -S open-ssh`
+
 copy sshd_config to /etc/ssh
 
 `sudo systemctl edit sshd.socket`

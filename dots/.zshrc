@@ -108,7 +108,9 @@ alias monitor="xrandr --output DVI-I-1 --auto --output DVI-D-0 --off"
 alias tv="xrandr --output DVI-I-1 --off --output DVI-D-0 --auto"
 
 alias mopc="mpc --port 6666"
+alias tengo='sudo pacman -Q |grep'
 
 export LC_CTYPE=$LANG
 
 export PATH=$HOME/.bin:$PATH
+
