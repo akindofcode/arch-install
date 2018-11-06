@@ -298,6 +298,20 @@ Launch sshd service
 
 `ssh -p 43333 chema@192.168.0.11`
 
+### Disable NetworkManager service
+
+If no wifi is needed you can disable NetworkManager service:
+
+`sudo systemctl disable NetworkManager`
+
+`sudo systemctl stop NetworkManager`
+
+You can also uninstall NetworkManager packages
+
+`sudo pacman -Rs networkmanager`
+
+`sudo pacman -Rs network-manager-applet`
+
 ### Mps-youtube
 
 Once you install mps-youtube, launch it with:
