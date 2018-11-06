@@ -110,6 +110,10 @@ alias tv="xrandr --output DVI-I-1 --off --output DVI-D-0 --auto"
 alias mopc="mpc --port 6666"
 alias tengo='sudo pacman -Q |grep'
 
+alias random='mpc random'
+alias again='mpc repeat'
+alias weather='curl "https://wttr.in/Aviles"'
+
 export LC_CTYPE=$LANG
 
 export PATH=$HOME/.bin:$PATH
