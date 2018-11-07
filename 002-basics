@@ -39,7 +39,7 @@ echo "### polybar installed ###"
 
 echo "### installing zsh ###"
 
-sudo pacman -S --noconfirm --needed zsh zsh-completions zsh-syntax-highlighting
+sudo pacman -S --noconfirm --needed zsh zsh-completions zsh-syntax-highlighting thefuck
 
 echo "### zsh installed ###"
 
