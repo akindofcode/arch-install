@@ -28,6 +28,8 @@ numlockx &
 
 thunar --daemon &
 
+setxkbmap -option caps:escape
+
 # tint2 &
 
 # (sleep 2; volumeicon) &
