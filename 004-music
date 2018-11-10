@@ -9,7 +9,7 @@ echo "### Music partition added to fstab ###"
 
 echo "### installing music apps ###"
 
-sudo pacman -S --needed --noconfirm mpd ncmpcpp mpc mpv youtube-dl 
+sudo pacman -S --needed --noconfirm mpd ncmpcpp mpc mpv parallel youtube-dl 
 
 trizen -S --noedit --noconfirm beets beets-copyartifacts-git python-discogs-client spotify cava pulsemixer
 
