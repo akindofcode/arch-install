@@ -118,6 +118,7 @@ alias tengo='sudo pacman -Q |grep'
 alias random='mpc random'
 alias again='mpc repeat'
 alias weather='curl "https://wttr.in/Aviles"'
+alias flac2mp3="parallel ffmpeg -i {} -b:a 0 {.}.mp3 ::: ./*.flac"
 
 export LC_CTYPE=$LANG
 
