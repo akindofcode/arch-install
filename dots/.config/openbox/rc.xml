@@ -638,8 +638,8 @@
     </keybind>
     <keybind key="W-m">
       <action name="Execute">
-        <!--<command>mpv - -player-operation-mode=pseudo-gui - -ytdl</command>-->
-        <command>termite -e "ncmpcpp --port 6666"</command>
+        <command>mpv --player-operation-mode=pseudo-gui</command>
+        <!--<command>termite -e "ncmpcpp - -port 6666"</command>-->
       </action>
     </keybind>
     <keybind key="W-Return">
@@ -727,7 +727,7 @@
         <command>pavucontrol</command>
       </action>
     </keybind>
-    
+
     <!-- Toggle monitors -->
     <!-- first screen only -->
     <keybind key="W-A-F1">
