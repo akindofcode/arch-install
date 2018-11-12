@@ -657,11 +657,11 @@
         <command>rofi -modi window -show window</command>
       </action>
     </keybind>
-    <keybind key="W-Pause">
+    <!--<keybind key="W-Pause">
       <action name="Execute">
-        <command>oblogout --config ~/.config/oblogout/oblogout.conf</command>
+        <command>oblogout - *join* -config ~/.config/oblogout/oblogout.conf</command>
       </action>
-    </keybind>
+    </keybind> -->
     <keybind key="W-Escape">
       <action name="Execute">
         <command>xkill</command>
@@ -727,6 +727,7 @@
         <command>pavucontrol</command>
       </action>
     </keybind>
+    
     <!-- Toggle monitors -->
     <!-- first screen only -->
     <keybind key="W-A-F1">
@@ -753,6 +754,40 @@
       </action>
     </keybind>
     <!-- Toggle monitors -->
+
+    <!-- music controls for lenovo keyboard -->
+    <keybind key="W--">
+      <action name="Execute">
+        <command>amixer set Master 10%-</command>
+      </action>
+    </keybind>
+    <keybind key="W-+">
+      <action name="Execute">
+        <command>amixer set Master 10%+</command>
+      </action>
+    </keybind>
+    <keybind key="W-Pause">
+      <action name="Execute">
+        <command>mpc stop</command>
+      </action>
+    </keybind>
+    <keybind key="Pause">
+      <action name="Execute">
+        <command>mpc toggle</command>
+      </action>
+    </keybind>
+    <keybind key="W-0x3B"> <!-- , -->
+      <action name="Execute">
+        <command>mpc prev</command>
+      </action>
+    </keybind>
+    <keybind key="W-0x3C"> <!-- . -->
+      <action name="Execute">
+        <command>mpc next</command>
+      </action>
+    </keybind>
+    <!-- music controls -->
+
     <!-- Extra keys -->
     <keybind key="XF86AudioMute">
       <action name="Execute">
