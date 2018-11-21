@@ -98,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias play='beet play year+ album+ track+'
+alias play='echo c | beet play year+ album+ track+'
 alias install='trizen -S --noedit --noconfirm'
 alias neofetch='clear; neofetch'
 
@@ -120,7 +120,11 @@ alias again='mpc repeat'
 alias weather='curl "https://wttr.in/Aviles"'
 
 alias flac2mp3="parallel ffmpeg -i {} -b:a 320k {.}.mp3 ::: ./*.flac"
-alias alac2mp3="parallel ffmpeg -i {} -c:a flac {.}.flac ::: ./*.m4a"
+alias alac2flac="parallel ffmpeg -i {} -c:a flac {.}.flac ::: ./*.m4a"
+
+#alias flac24to16="parallel ffmpeg -i {} -sample_fmt s16 -ar 48000  {.}.flac ::: ./*.flac"
+
+alias sleep=systemctl suspend
 
 export LC_CTYPE=$LANG
 
