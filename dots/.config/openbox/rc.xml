@@ -755,6 +755,14 @@
     </keybind>
     <!-- Toggle monitors -->
 
+    <!-- Suspend computer -->
+    <keybind key="C-A-z">
+      <action name="Execute">
+        <command>systemctl suspend</command>
+      </action>
+    </keybind>
+    <!-- Suspend computer -->
+
     <!-- music controls for lenovo keyboard -->
     <keybind key="W--">
       <action name="Execute">
