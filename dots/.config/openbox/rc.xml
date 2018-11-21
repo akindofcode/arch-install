@@ -717,7 +717,7 @@
         <command>pcmanfm</command>
       </action>
     </keybind>
-    <keybind key="C-A-r">
+    <keybind key="C-A-t">
       <action name="Execute">
         <command>rofi-theme-selector -font "Noto Sans 10"</command>
       </action>
@@ -755,13 +755,23 @@
     </keybind>
     <!-- Toggle monitors -->
 
-    <!-- Suspend computer -->
+    <!-- System commands -->
     <keybind key="C-A-z">
       <action name="Execute">
         <command>systemctl suspend</command>
       </action>
     </keybind>
-    <!-- Suspend computer -->
+    <keybind key="C-A-s">
+      <action name="Execute">
+        <command>systemctl poweroff</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-r">
+      <action name="Execute">
+        <command>systemctl reboot</command>
+      </action>
+    </keybind>
+    <!-- SYstem commands -->
 
     <!-- music controls for lenovo keyboard -->
     <keybind key="W--">
