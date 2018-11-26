@@ -13,7 +13,9 @@ echo "### basic apps installed ###"
 
 echo "### installing openbox related apps ###"
 
-sudo pacman -S --noconfirm --needed obconf lxappearance-gtk3 lxappearance-obconf-gtk3 neofetch oblogout zenity dunst feh nitrogen rofi dmenu xfce4-appfinder gmrun numlockx compton python-pywal
+sudo pacman -S --noconfirm --needed obconf lxappearance-gtk3 neofetch oblogout zenity dunst feh nitrogen rofi dmenu xfce4-appfinder gmrun numlockx compton python-pywal
+
+#sudo pacman -S --noconfirm --needed lxappearance-obconf-gtk3
 
 trizen -S --noconfirm --noedit obmenu3 obmenu-generator obkey
 
