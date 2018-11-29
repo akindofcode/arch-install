@@ -1,6 +1,19 @@
 syntax on
 
-set backspace=indent,eol,start			"Make backspace behave like any other editor.
+set nocompatible
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'takac/vim-hardtime'
+call plug#end()
+
+set backspace=2 				"backspace delete like most programs in insert mode
+
 let mapleader = ','				"The default leader is \, but a comma is much better
 set number					"Let's activate line numbers.
 
