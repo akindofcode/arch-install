@@ -1,6 +1,6 @@
 syntax on
 
-set nocompatible
+"vim-plug is a plugin manager
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -9,11 +9,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-plug'
 Plug 'takac/vim-hardtime'
 call plug#end()
 
+set nocompatible
 set backspace=2 				"backspace delete like most programs in insert mode
-
 let mapleader = ','				"The default leader is \, but a comma is much better
 set number					"Let's activate line numbers.
 
