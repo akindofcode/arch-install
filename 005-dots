@@ -8,6 +8,7 @@ cd dots
 cp .Xresources ~/
 cp .zshrc ~/
 cp .vimrc ~/
+cp .tmux.conf ~/
 cp -r wallpapers ~/
 cp -r .bin ~/
 cp -r .toys ~/
