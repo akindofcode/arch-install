@@ -536,6 +536,11 @@
         <command>termite</command>
       </action>
     </keybind>
+    <keybind key="W-Return">
+      <action name="Execute">
+        <command>termite -e "tmux"</command>
+      </action>
+    </keybind>
     <keybind key="W-y">
       <action name="Execute">
         <command>~/.config/polybar/launch.sh</command>
@@ -640,11 +645,6 @@
       <action name="Execute">
         <command>mpv --player-operation-mode=pseudo-gui</command>
         <!--<command>termite -e "ncmpcpp - -port 6666"</command>-->
-      </action>
-    </keybind>
-    <keybind key="W-Return">
-      <action name="Execute">
-        <command>termite -e ranger</command>
       </action>
     </keybind>
     <keybind key="W-space">
@@ -1388,6 +1388,18 @@
     <!--===========-->
     <!-- DESKTOP 3 -->
     <!--===========-->
+    <!-- Open tmux in desktop 3 and focus -->
+    <application title="tmux">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <desktop>3</desktop>
+      <maximize>yes</maximize>
+      <monitor>1</monitor>
+      <size>
+        <width>1980</width>
+        <height>1280</height>
+      </size>
+    </application>
     <!-- Open htop in desktop 3 -->
     <application title="htop">
       <decor>no</decor>
