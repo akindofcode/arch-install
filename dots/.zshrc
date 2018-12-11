@@ -130,3 +130,9 @@ export LC_CTYPE=$LANG
 
 export PATH=$HOME/.bin:$PATH
 
+# Custom cd
+c() {
+	cd $1;
+	ls;
+}
+alias cd="c"
