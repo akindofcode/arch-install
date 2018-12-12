@@ -15,6 +15,7 @@ cp -r .toys ~/
 cp -r .vim ~/
 cp -r .ncmpcpp ~/
 cp -r .config  ~/
+cp -r .oh-my-zsh ~/
 
 sudo mkdir -p /usr/lib/archlabs/common
 sudo mv ~/.bin/al-include.cfg /usr/lib/archlabs/common/
