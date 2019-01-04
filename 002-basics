@@ -23,7 +23,7 @@ echo "### openbox related apps installed ###"
 
 echo "### installing zippers and unzippers ###"
 
-sudo pacman -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj cabextract file-roller
+sudo pacman -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj cabextract file-roller p7zip
 
 echo "### zippers and unzippers installed ###"
 
