@@ -27,6 +27,13 @@ sudo pacman -S --noconfirm --needed unace unrar zip unzip sharutils uudeview arj
 
 echo "### zippers and unzippers installed ###"
 
+echo "### installing bluetooth ###"
+
+sudo pacman -S --noconfirm --needed bluez bluez-utils bluez-plugins
+trizen -S --noedit --noconfirm  xwiimote-git
+
+echo "### bluetooth installed ###"
+
 echo "### installing polybar ###"
 
 # tools needed for polybar
