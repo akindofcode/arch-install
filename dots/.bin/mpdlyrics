@@ -11,7 +11,9 @@ artist=$(mpc_query %artist%)
 title=$(mpc_query %title%)
 album=$(mpc_query %album%)
 
-lyrics=$(beet lyrics -p artist:$artist title:$title album:$album 2>/dev/null)
+#lyrics=$(beet lyrics -p artist:$artist title:$title album:$album 2>/dev/null)
+lyrics=$(beet lyrics -p title:$title album:$album 2>/dev/null)
+
 
 printf "%s - %s (%s)\n\n%s\n" "$artist" "$title" "$album" "$lyrics"
 
