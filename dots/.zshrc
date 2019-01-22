@@ -10,7 +10,7 @@ plugins=(
   colored-man-pages
   zsh-syntax-highlighting
   zsh-autosuggestions
-  thefuck
+  #thefuck
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -18,6 +18,8 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 
 alias zshconfig="vim ~/.zshrc"
+
+alias prj="cd ~/Projects/arch-install"
 
 alias install='trizen -S --noedit --noconfirm'
 
@@ -46,7 +48,12 @@ alias alac2flac="parallel ffmpeg -i {} -c:a flac {.}.flac ::: ./*.m4a"
 
 alias sleep=systemctl suspend
 
+alias tmux='tmux -2'
+
 alias ls="ls --group-directories-first --color=always -A"
+
+alias bton="bluetoothctl power on"
+alias btoff="bluetoothctl power off"
 
 # Custom cd
 c() {
