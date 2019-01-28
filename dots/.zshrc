@@ -62,5 +62,17 @@ c() {
 }
 alias cd="c"
 
+# Compress each file individually
+z() {
+	for X in *;
+		do
+		7z a -mx9 "${X%.*}".zip "$X"
+	done
+}
+alias 7zcompress="z"
+
+# Uncompress every zip file in the folder
+alias 7zuncompress='7za -y x "*.zip"'
+
 export LC_CTYPE="en_GB.UTF-8"
 
