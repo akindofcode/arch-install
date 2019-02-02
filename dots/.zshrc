@@ -74,5 +74,7 @@ alias 7zcompress="z"
 # Uncompress every zip file in the folder
 alias 7zuncompress='7za -y x "*.zip"'
 
+alias album="beet ls -a"
+
 export LC_CTYPE="en_GB.UTF-8"
 
