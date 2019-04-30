@@ -303,15 +303,12 @@ click-left = vivaldi-stable https://www.openweathermap.org/city/3129135
 [module/bluetooth]
 type = custom/script
 interval = 500
-format-padding = 2
+format-padding = 1
 
 exec = ~/.config/polybar/scripts/bluetooth.sh
 
 click-left = bluetoothctl power on
-
-
-
-
+click-right = bluetoothctl power off
 
 
 ;[module/battery]
